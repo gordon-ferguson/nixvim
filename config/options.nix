@@ -9,6 +9,12 @@
       splitbelow = true;
       wrap = false;
       expandtab = true;
+      autoindent = true;
+      smartindent = true;
+      smartcase = true;
+      cindent = true;
+      infercase = true;
+      cursorline = true;
       tabstop = 2;
       shiftwidth = 2;
       incsearch = true;

@@ -37,6 +37,17 @@
         desc = "LazyGit";
       };
     }
+
+    # Undotree
+    {
+      mode = "n";
+      key = "<localleader>u";
+      action = "<cmd>UndotreeToggle<CR>";
+      options = {
+        desc = "Undotree";
+      };
+    }
+
     # Zoxide
     {
       mode = "n";

@@ -757,10 +757,6 @@
       enable = true;
     };
 
-    # Colorizer
-    colorizer = {
-      enable = true;
-    };
   };
 
   extraConfigVim = ''

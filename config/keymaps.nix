@@ -10,27 +10,9 @@
     {
       mode = "n";
       key = "<localleader>g";
-      action = "<cmd>LazyGit";
+      action = "<cmd>LazyGit<CR>";
       options = {
         desc = "LazyGit";
-      };
-    }
-    # Zoxide
-    {
-      mode = "n";
-      key = "<localleader>z";
-      action = "<cmd>Zoxide";
-      options = {
-        desc = "Zoxide";
-      };
-    }
-    # Zoxide
-    {
-      mode = "n";
-      key = "<localleader>z";
-      action = "<cmd>Zoxide";
-      options = {
-        desc = "Zoxide";
       };
     }
     # Zoxide

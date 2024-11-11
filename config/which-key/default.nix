@@ -3,11 +3,31 @@ _: {
     enable = true;
     settings = {
       spec = [
-      "<leader>g" = " Git";
-      "<leader>s" = " Files";
-      "<leader>b" = " Buffer";
-      "<leader>t" = " Terminal";
-      "<leader>l" = " LSP";
+        {
+          __unkeyed-1 = "<leader>g";
+          group = "Git";
+          icon = "";
+        }
+        {
+          __unkeyed-1 = "<leader>s";
+          group = "Files";
+          icon = "";
+        }
+        {
+          __unkeyed-1 = "<leader>b";
+          group = "Buffer";
+          icon = "";
+        }
+        {
+          __unkeyed-1 = "<leader>t";
+          group = "Terminal";
+          icon = "";
+        }
+        {
+          __unkeyed-1 = "<leader>l";
+          group = "LSP";
+          icon = "";
+        }
       ];
       disable.filetypes = [ "TelescopePrompt" ];
       icons = {

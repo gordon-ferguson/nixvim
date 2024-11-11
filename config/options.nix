@@ -7,6 +7,7 @@
       relativenumber = true;
       splitright = true;
       splitbelow = true;
+      showtabline = false;
       wrap = false;
       expandtab = true;
       autoindent = true;

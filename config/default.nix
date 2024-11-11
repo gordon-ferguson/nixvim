@@ -4,6 +4,7 @@
     ./bufferline.nix 
     ./core.nix
     ./options.nix
+    ./plugins.nix
     ./keymaps.nix
     ./telescope.nix
     ./tmux

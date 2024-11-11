@@ -19,7 +19,7 @@
     {
       mode = "n";
       key = "<localleader>z";
-      action = "<cmd>Zoxide";
+      action = ":Z ";
       options = {
         desc = "Zoxide";
       };

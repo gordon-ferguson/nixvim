@@ -11,7 +11,9 @@
       mode = "n";
       key = "<localleader>z";
       action = ":Z ";
-      desc = "Zoxide";
+      options = {
+        desc = "Zoxide";
+      };
     }
   ];
 }

@@ -142,12 +142,12 @@ _: {
         };
       }
       {
-        key = "<leader>,";
+        key = "<leader>?";
         mode = [ "n" "v" ];
-        action.__raw = ''function() require("telescope.builtin").buffers() end'';
+        action.__raw = ''function() require("telescope.builtin").oldfiles end'';
         options = {
           silent = true;
-          desc = "Find Buffers";
+          desc = "Recently Opened Files";
         };
       }
       {

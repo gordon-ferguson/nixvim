@@ -748,12 +748,7 @@
     };
 
     # Surround
-    surround = {
-      enable = true;
-    };
-
-    # Zoxide
-    zoxide = {
+    nvim-surround = {
       enable = true;
     };
 

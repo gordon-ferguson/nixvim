@@ -118,7 +118,7 @@
     {
       mode = "x";
       key = "<leader>p";
-      action = "\"_dP";
+      action = "\"+p";
       options = {
         desc = "Paste over visual selection";
       };

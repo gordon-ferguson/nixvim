@@ -144,7 +144,7 @@ _: {
       {
         key = "<leader>?";
         mode = [ "n" "v" ];
-        action.__raw = ''function() require("telescope.builtin").oldfiles end'';
+        action.__raw = ''function() require("telescope.builtin").oldfiles() end'';
         options = {
           silent = true;
           desc = "Recently Opened Files";

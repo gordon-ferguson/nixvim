@@ -4,6 +4,7 @@
     ./bufferline.nix 
     ./core.nix
     ./options.nix
+    ./keymaps.nix
     ./telescope.nix
     ./tmux
     ./which-key

@@ -3,5 +3,6 @@
   imports = [ 
     ./bufferline.nix 
     ./core.nix
+    ./options.nix
   ];
 }

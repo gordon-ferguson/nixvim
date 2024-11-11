@@ -7,16 +7,13 @@ _: {
     };
     settings = {
       spec = {
-        ["<leader>"] = {
-          name = " Buffer";
-          g = " Git";
-          s = " Search";
-          b = " Buffer";
-          t = " Terminal";
-          l = " LSP";
-        };
-      disable.ft = [ "TelescopePrompt" ];
-      };  
+      "<leader>g" = " Git";
+      "<leader>s" = " Files";
+      "<leader>b" = " Buffer";
+      "<leader>t" = " Terminal";
+      "<leader>l" = " LSP";
+      };
+      disable.filetypes = [ "TelescopePrompt" ];
     };
   };
 }

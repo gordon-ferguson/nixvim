@@ -5,6 +5,7 @@
     ./core.nix
     ./options.nix
     ./telescope.nix
+    ./tmux
     ./which-key
   ];
 }

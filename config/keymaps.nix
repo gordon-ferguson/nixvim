@@ -1,6 +1,102 @@
 {self, ...}:{
   keymaps = [
 
+    ## General ##
+    # Select all
+    {
+      mode = "n";
+      key = "<C-a>";
+      action = "ggVG";
+      options = {
+        desc = "Select all";
+      };
+    }
+
+    # Use backspace to go to previous buffer
+    {
+      mode = "n";
+      key = "<BS>";
+      action = "<cmd>bp<CR>";
+      options = {
+        desc = "Previous buffer";
+      };
+    }
+    # Escape to clear highlights
+    {
+      mode = "n";
+      key = "<Esc>";
+      action = "<cmd>noh<CR>";
+      options = {
+        desc = "Clear highlights";
+        silent = true;
+      };
+    }
+
+    # Bind j and k to gj and gk
+    {
+      mode = "n";
+      key = "j";
+      action = "gj";
+      options = {
+        desc = "Move down visual line";
+      };
+    }
+    {
+      mode = "n";
+      key = "k";
+      action = "gk";
+      options = {
+        desc = "Move up visual line";
+      };
+    }
+
+    # Prose mode
+    {
+      mode = "n";
+      key = "<localleader>p";
+      action = "<cmd>setlocal spell! spelllang=en_us nowrap! linbreak!<CR>";
+      options = {
+        desc = "Prose mode";
+      };
+    }
+    # Rehighlight selection after indenting
+    {
+      mode = "v";
+      key = "<";
+      action = "<gv";
+      options = {
+        desc = "Rehighlight selection after indenting";
+      };
+    }
+    {
+      mode = "v";
+      key = ">";
+      action = ">gv";
+      options = {
+        desc = "Rehighlight selection after indenting";
+      };
+    }
+    
+    # Change c key so it doesn't copy to register
+    {
+      mode = "n";
+      key = "c";
+      action = "\"_c";
+      options = {
+        desc = "Change";
+        silent = true;
+      };
+    }
+    {
+      mode = "v";
+      key = "c";
+      action = "\"_c";
+      options = {
+        desc = "Change";
+        silent = true;
+      };
+    }
+
     # Remove the need to press shift for command mode.
     {
       mode = "n";
@@ -17,6 +113,18 @@
         desc = "Change directory to current file";
       };
     }
+
+    # Paste over visual selection
+    {
+      mode = "x";
+      key = "<leader>p";
+      action = "\"_dP";
+      options = {
+        desc = "Paste over visual selection";
+      };
+    }
+
+    ## Program specific ##
 
     # Oil
     {

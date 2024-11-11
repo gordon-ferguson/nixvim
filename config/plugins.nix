@@ -127,9 +127,6 @@
       topDown = true;
     };
 
-    # Persistence
-    persistence.enable = true;
-
     # Debugger
     dap = {
       enable = true;

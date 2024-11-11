@@ -10,34 +10,36 @@
     };
     luaLoader.enable = true;
     plugins = {
-      treesitter = {
-        enable = true;
-        ensureInstalled = [
-          "bash"
-          "c"
-          "fish"
-          "lua"
-          "hypr"
-          "javascript"
-          "python"
-          "vim"
-          "vimdoc"
-          "markdown"
-          "markdown_inline"
-        ];
-        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-          bash
-          fish
-          hyprlang
-          lua
-          vim
-          vimdoc
-          markdown
-          markdown-inline
-          html
-          regex
-        ];
-      };
+	    treesitter = {
+		    enable = true;
+		    settings = {
+			    ensure_installed = [
+				    "bash"
+				    "c"
+				    "fish"
+				    "lua"
+				    "hyprlang"
+				    "javascript"
+				    "python"
+				    "vim"
+				    "vimdoc"
+				    "markdown"
+				    "markdown_inline"
+			    ];
+			    grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+				    bash
+				    fish
+				    hyprlang
+				    lua
+				    vim
+				    vimdoc
+				    markdown
+				    markdown-inline
+				    html
+				    regex
+			    ];
+		    };
+	    };
     };
   };
 }

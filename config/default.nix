@@ -5,5 +5,6 @@
     ./core.nix
     ./options.nix
     ./telescope.nix
+    ./which-key
   ];
 }

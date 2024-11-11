@@ -10,23 +10,8 @@ _: {
         }
         {
           __unkeyed-1 = "<leader>s";
-          group = "Files";
+          group = "Search";
           icon = "";
-        }
-        {
-          __unkeyed-1 = "<leader>b";
-          group = "Buffer";
-          icon = "";
-        }
-        {
-          __unkeyed-1 = "<leader>t";
-          group = "Terminal";
-          icon = "";
-        }
-        {
-          __unkeyed-1 = "<leader>l";
-          group = "LSP";
-          icon = "";
         }
       ];
       disable.filetypes = [ "TelescopePrompt" ];

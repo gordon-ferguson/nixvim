@@ -24,7 +24,7 @@
       key = "<localleader><localleader>";
       action = "<cmd>Oil<CR>";
       options = {
-        desk = "Oil";
+        desc = "Oil";
       };
     }
 

@@ -8,7 +8,7 @@
         no_bold = false;
       };
     };
-    luaLoader.enable = true;
+    luaLoader.enable = false;
     plugins = {
 	    treesitter = {
 		    enable = true;

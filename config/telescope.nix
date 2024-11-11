@@ -82,7 +82,7 @@ _: {
     # };
     keymaps = [
       {
-        key = "<leader>f<cr>";
+        key = "<leader>sR";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope.builtin").resume() end'';
         options = {
@@ -91,7 +91,7 @@ _: {
         };
       }
       {
-        key = "<leader><leader>";
+        key = "<leader>sf";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope.builtin").find_files() end'';
         options = {
@@ -109,7 +109,7 @@ _: {
         };
       }
       {
-        key = "<leader>fF";
+        key = "<leader>sF";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end'';
         options = {
@@ -118,7 +118,7 @@ _: {
         };
       }
       {
-        key = "<leader>fw";
+        key = "<leader>sg";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope.builtin").live_grep() end'';
         options = {
@@ -127,7 +127,7 @@ _: {
         };
       }
       {
-        key = "<leader>fW";
+        key = "<leader>sG";
         mode = [ "n" "v" ];
         action.__raw = ''
           function()
@@ -142,7 +142,7 @@ _: {
         };
       }
       {
-        key = "<leader>fb";
+        key = "<leader>,";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope.builtin").buffers() end'';
         options = {
@@ -151,7 +151,7 @@ _: {
         };
       }
       {
-        key = "<leader>fc";
+        key = "<leader>sc";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope.builtin").grep_string() end'';
         options = {
@@ -160,7 +160,7 @@ _: {
         };
       }
       {
-        key = "<leader>fC";
+        key = "<leader>sC";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope.builtin").commands() end'';
         options = {
@@ -169,7 +169,7 @@ _: {
         };
       }
       {
-        key = "<leader>fk";
+        key = "<leader>sk";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope.builtin").keymaps() end'';
         options = {
@@ -178,7 +178,7 @@ _: {
         };
       }
       {
-        key = "<leader>ft";
+        key = "<leader>st";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope.builtin").colorscheme { enable_preview = true } end'';
         options = {
@@ -187,7 +187,7 @@ _: {
         };
       }
       {
-        key = "<leader>fn";
+        key = "<leader>sn";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope").extensions.notify.notify() end'';
         options = {
@@ -196,7 +196,7 @@ _: {
         };
       }
       {
-        key = "<leader>fp";
+        key = "<leader>sp";
         mode = [ "n" "v" ];
         action = "<cmd>Telescope projects<cr>";
         options = {
@@ -232,7 +232,7 @@ _: {
         };
       }
       {
-        key = "<leader>lD";
+        key = "<leader>sD";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope.builtin").diagnostics() end'';
         options = {
@@ -241,7 +241,7 @@ _: {
         };
       }
       {
-        key = "<leader>ls";
+        key = "<leader>ss";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope.builtin").lsp_document_symbols() end'';
         options = {
@@ -250,7 +250,7 @@ _: {
         };
       }
       {
-        key = "<leader>,";
+        key = "<leader><leader>";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope.builtin").buffers() end'';
         options = {

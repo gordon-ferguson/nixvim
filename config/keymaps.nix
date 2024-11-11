@@ -1,7 +1,9 @@
-{
-  {
-    mode = "n";
-    key = ";";
-    action = "<cmd>";
-  };
+{self, ...}:{
+  keymaps = [
+    {
+      mode = "n";
+      key = ";";
+      action = "<cmd>";
+    };
+  ];
 }

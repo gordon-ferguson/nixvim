@@ -1,11 +1,23 @@
 {self, ...}:{
   keymaps = [
+
     # Remove the need to press shift for command mode.
     {
       mode = "n";
       key = ";";
       action = ":";
     }
+    
+    # Cd into the current directory
+    {
+      mode = "n";
+      key = "<localleader>cd";
+      action = "<cmd>lcd %:p:h<CR>:pwd<CR>";
+      options = {
+        desc = "Change directory to current file";
+      };
+    }
+
     # Lazygit
     {
       mode = "n";

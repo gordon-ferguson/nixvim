@@ -20,7 +20,10 @@
       incsearch = true;
       inccommand = "split";
       ignorecase = true;
-      clipboard = "unnamedplus";
+      clipboard = { 
+        providers.wl-copy.enable = true;
+        register = "unnamedplus";
+      };
       scrolloff = 999;
       virtualedit = "block";
       undofile = true;
@@ -29,6 +32,15 @@
       pumblend = 10;
       conceallevel = 1;
       foldlevelstart = 99;
+      list = true;
+      listchars = {
+        tab = "▸ ";
+        trail = "•";
+        extends = "❯";
+        precedes = "❮";
+        eol = "¬";
+      };
+      ruler = true;
       showcmd = true;
     };
   };

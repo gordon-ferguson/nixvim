@@ -877,7 +877,7 @@
 
   extraPlugins = with pkgs.vimPlugins;
     [
-      zoxide
+      zoxide-vim
       glow-nvim # Glow inside of Neovim
       clipboard-image-nvim
     ];

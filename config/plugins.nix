@@ -499,13 +499,6 @@
       };
     };
 
-    # Dashboard
-    alpha = {
-      enable = true;
-      theme = "dashboard";
-      # iconsEnabled = true; # Deprecated
-    };
-
     # Even more snippets
     nvim-snippets = {
       enable = false;
@@ -738,7 +731,36 @@
         };
       };
     };
+    
+    # Harpoon
+    harpoon = {
+      enable = true;
+    }; 
 
+    # Leap
+    leap = {
+      enable = true;
+    };
+
+    # Repeat
+    repeat = {
+      enable = true;
+    };
+
+    # Surround
+    surround = {
+      enable = true;
+    };
+
+    # Zoxide
+    zoxide = {
+      enable = true;
+    };
+
+    # Colorizer
+    colorizer = {
+      enable = true;
+    };
   };
 
   extraConfigVim = ''

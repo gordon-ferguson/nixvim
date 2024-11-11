@@ -4,5 +4,6 @@
     ./bufferline.nix 
     ./core.nix
     ./options.nix
+    ./telescope.nix
   ];
 }

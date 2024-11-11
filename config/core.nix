@@ -40,6 +40,13 @@
 			    ];
 		    };
 	    };
+      vim-matchup = {
+        enable = true;
+        treesitterIntegration.enable = true;
+      };
+      ts-autotag.enable = true;
+      project-nvim.enable = true;
+      auto-session.enable = true;
     };
   };
 }

@@ -6,5 +6,12 @@
       key = ";";
       action = ":";
     }
+    # Zoxide
+    {
+      mode = "n";
+      key = "<localleader>z";
+      action = ":Z ";
+      desc = "Zoxide";
+    }
   ];
 }

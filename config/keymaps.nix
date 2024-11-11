@@ -18,6 +18,16 @@
       };
     }
 
+    # Oil
+    {
+      mode = "n";
+      key = "<localleader><localleader>";
+      action = "<cmd>Oil<CR>";
+      options = {
+        desk = "Oil";
+      };
+    }
+
     # Lazygit
     {
       mode = "n";

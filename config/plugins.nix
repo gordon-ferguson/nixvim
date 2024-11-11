@@ -27,10 +27,10 @@
       ];
     };
 
-    # Buffer bar
-    bufferline = {
-      enable = true;
-    };
+    # # Buffer bar
+    # bufferline = {
+    #   enable = true;
+    # };
 
     # Status bar
     lualine = {

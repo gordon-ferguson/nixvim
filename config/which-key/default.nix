@@ -1,12 +1,12 @@
 _: {
   config.plugins.which-key = {
     enable = true;
-    disable.filetypes = [ "TelescopePrompt" ];
+    disable.ft = [ "TelescopePrompt" ];
     icons = {
       group = "";
       separator = "";
     };
-    registrations = {
+    settings.spec = {
       "<leader>g" = " Git";
       "<leader>f" = " Files";
       "<leader>b" = " Buffer";

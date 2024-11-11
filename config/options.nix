@@ -1,7 +1,7 @@
 {
   config = {
     globals.mapleader = " ";
-    globals.maplocalLeader = ",";
+    globals.maplocalleader = ",";
     opts = {
       number = true;
       relativenumber = true;

@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   config = {
-    colorschemes.catppuccin = {
+    colorschemes.rose-pine = {
       enable = true;
       settings = {
         term_colors = true;

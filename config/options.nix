@@ -3,7 +3,6 @@
     globals.mapleader = " ";
     globals.maplocalleader = ",";
     opts = {
-      # shortmess = "append('I')"; # Remove intro message
       number = true; # Line numbers
       relativenumber = true; # Relative line numbers
       splitright = true; # Split right
@@ -39,7 +38,7 @@
         trail = "•";
         extends = "❯";
         precedes = "❮";
-        eol = "¬";
+        # eol = "¬";
       };
       ruler = true;
       showcmd = true;

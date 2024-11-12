@@ -27,10 +27,10 @@
       ];
     };
 
-    # # Buffer bar
-    # bufferline = {
-    #   enable = true;
-    # };
+    # Buffer bar
+    bufferline = {
+      enable = false;
+    };
 
     # Status bar
     lualine = {
@@ -54,6 +54,9 @@
 
     # Icons 
     web-devicons.enable = true;
+
+    # Persistence
+    persistence.enable = false;
 
     # Sleuth
     sleuth = {

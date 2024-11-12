@@ -380,7 +380,7 @@
       enable = true;
       settings = {
         cmdline = {
-          view = "cmdline";
+          view = "cmdline"; # Force command window to bottom, use "cmdline_popup" for middle.
         };
       };
     };

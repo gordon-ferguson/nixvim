@@ -33,6 +33,8 @@
             lua
             vim
             vimdoc
+            python
+            javascript
             markdown
             markdown-inline
             html

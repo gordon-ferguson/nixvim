@@ -16,7 +16,7 @@
     {
       mode = "n";
       key = "<BS>";
-      action = "<cmd>bp<CR>";
+      action = "C-^";
       options = {
         desc = "Previous buffer";
       };
@@ -126,16 +126,6 @@
 
     ## Program specific ##
 
-    # Oil
-    {
-      mode = "n";
-      key = "<localleader><localleader>";
-      action = "<cmd>Oil<CR>";
-      options = {
-        desc = "Oil";
-      };
-    }
-
     # Lazygit
     {
       mode = "n";
@@ -143,6 +133,16 @@
       action = "<cmd>LazyGit<CR>";
       options = {
         desc = "LazyGit";
+      };
+    }
+
+    # Oil
+    {
+      mode = "n";
+      key = "<localleader><localleader>";
+      action = "<cmd>Oil<CR>";
+      options = {
+        desc = "Oil";
       };
     }
 

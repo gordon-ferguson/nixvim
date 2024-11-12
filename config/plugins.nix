@@ -68,10 +68,10 @@
       enable = true;
     };
 
-    # Autopairs
-    nvim-autopairs = {
-      enable = true;
-    };
+    # # Autopairs
+    # nvim-autopairs = {
+    #   enable = true;
+    # };
 
     # LSP
     none-ls = {

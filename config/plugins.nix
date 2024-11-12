@@ -55,6 +55,7 @@
     # Icons 
     web-devicons.enable = true;
 
+    # Sleuth
     sleuth = {
       enable = true;
     };
@@ -69,6 +70,7 @@
       enable = true;
     };
 
+    # LSP
     none-ls = {
       enable = true;
       settings = {
@@ -749,7 +751,6 @@
     nvim-surround = {
       enable = true;
     };
-
   };
 
   extraConfigVim = ''

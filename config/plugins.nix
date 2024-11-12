@@ -376,6 +376,10 @@
     # Prettier fancier command window
     noice = {
       enable = true;
+      # Put the command window at the bottom
+      settings = {
+        position = "bottom";
+      };
     };
 
     # Todo comments

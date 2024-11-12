@@ -736,7 +736,7 @@
     };
     
     # Harpoon
-    plugins.harpoon = {
+    harpoon = {
       enable = false;
       enableTelescope = true;
       keymapsSilent = true;

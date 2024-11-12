@@ -3,6 +3,7 @@
     globals.mapleader = " ";
     globals.maplocalleader = ",";
     opts = {
+      shortmess = "ltToOCFI";
       number = true; # Line numbers
       relativenumber = true; # Relative line numbers
       splitright = true; # Split right

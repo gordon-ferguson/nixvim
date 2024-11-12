@@ -11,3 +11,9 @@ To test your configuration simply clone the repository (with either Nix or
 ```
 nix run .
 ```
+
+or, source it remotely with
+
+```
+nix run github:gordon-ferguson/nixvim
+```

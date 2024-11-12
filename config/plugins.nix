@@ -376,6 +376,11 @@
     # Prettier fancier command window
     noice = {
       enable = true;
+      settings = {
+        cmdline = {
+          view = "cmdline";
+        };
+      };
     };
 
     # Todo comments

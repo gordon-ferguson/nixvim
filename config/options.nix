@@ -3,7 +3,7 @@
     globals.mapleader = " ";
     globals.maplocalleader = ",";
     opts = {
-      shortmess = "append('I')"; # Remove intro message
+      # shortmess = "append('I')"; # Remove intro message
       number = true; # Line numbers
       relativenumber = true; # Relative line numbers
       splitright = true; # Split right

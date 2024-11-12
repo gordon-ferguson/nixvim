@@ -54,7 +54,7 @@
     {
       mode = "n";
       key = "<localleader>p";
-      action = "<cmd>setlocal spell! spelllang=en_us nowrap! linbreak!<CR>";
+      action = "<cmd>setlocal spell! spelllang=en_us nowrap! linebreak!<CR>";
       options = {
         desc = "Prose mode";
       };

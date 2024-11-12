@@ -37,11 +37,12 @@
       enable = true;
     };
 
-    # Make `nvim .` look prettier
+    # Oil
     oil = {
       enable = true;
     };
 
+    # Smooth scrolling with neoscroll
     neoscroll = {
       enable = true;
     };

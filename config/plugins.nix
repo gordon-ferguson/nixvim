@@ -742,7 +742,7 @@
       keymapsSilent = true;
       keymaps = {
         addFile = "<leader>ha";
-        toggleQuickMenu = "<C-e>";
+        toggleQuickMenu = "<leader>hh";
         navFile = {
           "1" = "<leader>hj";
           "2" = "<leader>hk";

@@ -2,6 +2,10 @@
   config = {
     globals.mapleader = " ";
     globals.maplocalleader = ",";
+    clipboard = { 
+      providers.wl-copy.enable = true;
+      register = "unnamedplus";
+    };
     opts = {
       shortmess = "ltToOCFI";
       number = true; # Line numbers
@@ -21,9 +25,6 @@
       incsearch = true;
       inccommand = "split";
       ignorecase = true;
-      clipboard = { 
-        register = "unnamedplus";
-      };
       scrolloff = 999;
       virtualedit = "block";
       undofile = true;

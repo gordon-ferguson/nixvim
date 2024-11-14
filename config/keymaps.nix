@@ -16,7 +16,7 @@
     {
       mode = "n";
       key = "<BS>";
-      action = "C-^";
+      action = "<C-^>";
       options = {
         desc = "Previous buffer";
       };
@@ -48,6 +48,18 @@
       options = {
         desc = "Move up visual line";
       };
+    }
+
+    # Change L and H to mirror $ and _
+    {
+      mode = ["n" "x" "o"];
+      key = "L";
+      action = "$";
+    }
+    {
+      mode = ["n" "x" "o"];
+      key = "H";
+      action = "^";
     }
 
     # Prose mode

@@ -90,6 +90,15 @@ _: {
           desc = "Resume previous search";
         };
       }
+{
+        key = "<leader>sr";
+        mode = [ "n" "v" ];
+        action.__raw = ''function() require("telescope.builtin").registers() end'';
+        options = {
+          silent = true;
+          desc = "Search registers";
+        };
+      }      
       {
         key = "<leader>sf";
         mode = [ "n" "v" ];

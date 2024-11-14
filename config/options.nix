@@ -22,7 +22,6 @@
       inccommand = "split";
       ignorecase = true;
       clipboard = { 
-        providers.wl-copy.enable = true;
         register = "unnamedplus";
       };
       scrolloff = 999;

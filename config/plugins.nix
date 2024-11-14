@@ -789,6 +789,18 @@
   '';
 
   extraConfigLua = ''
+    require('flit').setup {
+      keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+      -- A string like "nv", "nvo", "o", etc.
+      labeled_modes = "nvo",
+      -- Repeat with the trigger key itself.
+      clever_repeat = true,
+      multiline = true,
+      -- Like `leap`s similar argument (call-specific overrides).
+      -- E.g.: opts = { equivalence_classes = {} }
+      opts = {}
+    }
+
     require("telescope").load_extension("lazygit")
 
     luasnip = require("luasnip")
@@ -898,6 +910,7 @@
 
   extraPlugins = with pkgs.vimPlugins;
     [
+      flit-nvim
       zoxide-vim
       glow-nvim # Glow inside of Neovim
       clipboard-image-nvim

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   plugins = {
     # Navigate Tmux with the same keybindings as Neovim
     tmux-navigator = {
@@ -77,7 +77,7 @@
     none-ls = {
       enable = true;
       settings = {
-        cmd = ["bash -c nvim"];
+        cmd = [ "bash -c nvim" ];
         debug = true;
       };
       sources = {
@@ -157,7 +157,7 @@
         dap-ui = {
           enable = true;
           floating.mappings = {
-            close = ["<ESC>" "q"];
+            close = [ "<ESC>" "q" ];
           };
         };
         dap-virtual-text = {
@@ -181,16 +181,16 @@
     lint = {
       enable = true;
       lintersByFt = {
-        text = ["vale"];
-        json = ["jsonlint"];
-        markdown = ["vale"];
-        rst = ["vale"];
-        ruby = ["ruby"];
-        janet = ["janet"];
-        inko = ["inko"];
-        clojure = ["clj-kondo"];
-        dockerfile = ["hadolint"];
-        terraform = ["tflint"];
+        text = [ "vale" ];
+        json = [ "jsonlint" ];
+        markdown = [ "vale" ];
+        rst = [ "vale" ];
+        ruby = [ "ruby" ];
+        janet = [ "janet" ];
+        inko = [ "inko" ];
+        clojure = [ "clj-kondo" ];
+        dockerfile = [ "hadolint" ];
+        terraform = [ "tflint" ];
       };
     };
 
@@ -389,12 +389,12 @@
     todo-comments = {
       enable = true;
       settings.colors = {
-        error = ["DiagnosticError" "ErrorMsg" "#DC2626"];
-        warning = ["DiagnosticWarn" "WarningMsg" "#FBBF24"];
-        info = ["DiagnosticInfo" "#2563EB"];
-        hint = ["DiagnosticHint" "#10B981"];
-        default = ["Identifier" "#7C3AED"];
-        test = ["Identifier" "#FF00FF"];
+        error = [ "DiagnosticError" "ErrorMsg" "#DC2626" ];
+        warning = [ "DiagnosticWarn" "WarningMsg" "#FBBF24" ];
+        info = [ "DiagnosticInfo" "#2563EB" ];
+        hint = [ "DiagnosticHint" "#10B981" ];
+        default = [ "Identifier" "#7C3AED" ];
+        test = [ "Identifier" "#FF00FF" ];
       };
     };
 
@@ -490,12 +490,14 @@
             # };
           };
         };
-        gopls = { # Golang
+        gopls = {
+          # Golang
           enable = true;
           autostart = true;
         };
 
-        lua_ls = { # Lua
+        lua_ls = {
+          # Lua
           enable = true;
           settings.telemetry.enable = false;
         };
@@ -525,7 +527,7 @@
           "all"
         ];
         ignored_filetypes = [
-        #  "lua"
+          #  "lua"
         ];
         search_paths = [
           {
@@ -552,7 +554,7 @@
           fetchingTimeout = 200;
           maxViewEntries = 30;
         };
-        snippet = { 
+        snippet = {
           expand = ''
             function(args)
               require('luasnip').lsp_expand(args.body)
@@ -625,7 +627,7 @@
     };
     cmp-cmdline = {
       enable = true; # autocomplete for cmdline
-    }; 
+    };
 
     lspkind = {
       enable = true;
@@ -741,7 +743,7 @@
         };
       };
     };
-    
+
     # Harpoon
     harpoon = {
       enable = true;
@@ -789,81 +791,133 @@
   '';
 
   extraConfigLua = ''
-    require('flit').setup {
-      keys = { f = 'f', F = 'F', t = 't', T = 'T' },
-      -- A string like "nv", "nvo", "o", etc.
-      labeled_modes = "nvo",
-      -- Repeat with the trigger key itself.
-      clever_repeat = true,
-      multiline = true,
-      -- Like `leap`s similar argument (call-specific overrides).
-      -- E.g.: opts = { equivalence_classes = {} }
-      opts = {}
-    }
-
-    require("telescope").load_extension("lazygit")
-
-    luasnip = require("luasnip")
-    kind_icons = {
-      Text = "󰊄",
-      Method = "",
-      Function = "󰡱",
-      Constructor = "",
-      Field = "",
-      Variable = "󱀍",
-      Class = "",
-      Interface = "",
-      Module = "󰕳",
-      Property = "",
-      Unit = "",
-      Value = "",
-      Enum = "",
-      Keyword = "",
-      Snippet = "",
-      Color = "",
-      File = "",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "",
-      Event = "",
-      Operator = "",
-      TypeParameter = "",
-    } 
-
-    local cmp = require'cmp'
-
-    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-    cmp.setup.cmdline({'/', "?" }, {
-      sources = {
-        { name = 'buffer' }
+      require("recorder").setup {
+      	-- Named registers where macros are saved (single lowercase letters only).
+      	-- The first register is the default register used as macro-slot after
+      	-- startup.
+      	slots = { "a", "b" },
+      
+      	mapping = {
+      		startStopRecording = "q",
+      		playMacro = "Q",
+      		switchSlot = "<C-q>",
+      		editMacro = "cq",
+      		deleteAllMacros = "dq",
+      		yankMacro = "yq",
+      		-- ⚠️ this should be a string you don't use in insert mode during a macro
+      		addBreakPoint = "##",
+      	},
+      
+      	-- Clears all macros-slots on startup.
+      	clear = false,
+      
+      	-- Log level used for non-critical notifications; mostly relevant for nvim-notify.
+      	-- (Note that by default, nvim-notify does not show the levels `trace` & `debug`.)
+      	logLevel = vim.log.levels.INFO, -- :help vim.log.levels
+      
+      	-- If enabled, only essential notifications are sent.
+      	-- If you do not use a plugin like nvim-notify, set this to `true`
+      	-- to remove otherwise annoying messages.
+      	lessNotifications = false,
+      
+      	-- Use nerdfont icons in the status bar components and keymap descriptions
+      	useNerdfontIcons = true,
+      
+      	-- Performance optimzations for macros with high count. When `playMacro` is
+      	-- triggered with a count higher than the threshold, nvim-recorder
+      	-- temporarily changes changes some settings for the duration of the macro.
+      	performanceOpts = {
+      		countThreshold = 100,
+      		lazyredraw = true, -- enable lazyredraw (see `:h lazyredraw`)
+      		noSystemClipboard = true, -- remove `+`/`*` from clipboard option
+      		autocmdEventsIgnore = { -- temporarily ignore these autocmd events
+      			"TextChangedI",
+      			"TextChanged",
+      			"InsertLeave",
+      			"InsertEnter",
+      			"InsertCharPre",
+      		},
+      	},
+      
+      	-- [experimental] partially share keymaps with nvim-dap.
+      	-- (See README for further explanations.)
+      	dapSharedKeymaps = false,
       }
-    })
+      require('flit').setup {
+        keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+        -- A string like "nv", "nvo", "o", etc.
+        labeled_modes = "nvo",
+        -- Repeat with the trigger key itself.
+        clever_repeat = true,
+        multiline = true,
+        -- Like `leap`s similar argument (call-specific overrides).
+        -- E.g.: opts = { equivalence_classes = {} }
+        opts = {}
+      }
 
-    -- Set configuration for specific filetype.
-     cmp.setup.filetype('gitcommit', {
-       sources = cmp.config.sources({
-         { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-       }, {
-         { name = 'buffer' },
+      require("telescope").load_extension("lazygit")
+
+      luasnip = require("luasnip")
+      kind_icons = {
+        Text = "󰊄",
+        Method = "",
+        Function = "󰡱",
+        Constructor = "",
+        Field = "",
+        Variable = "󱀍",
+        Class = "",
+        Interface = "",
+        Module = "󰕳",
+        Property = "",
+        Unit = "",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "",
+        Event = "",
+        Operator = "",
+        TypeParameter = "",
+      } 
+
+      local cmp = require'cmp'
+
+      -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline({'/', "?" }, {
+        sources = {
+          { name = 'buffer' }
+        }
+      })
+
+      -- Set configuration for specific filetype.
+       cmp.setup.filetype('gitcommit', {
+         sources = cmp.config.sources({
+           { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+         }, {
+           { name = 'buffer' },
+         })
        })
-     })
 
-     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-     cmp.setup.cmdline(':', {
-       sources = cmp.config.sources({
-         { name = 'path' }
-       }, {
-         { name = 'cmdline' }
-       }),
-  --      formatting = {
-  --       format = function(_, vim_item)
-  --         vim_item.kind = cmdIcons[vim_item.kind] or "FOO"
-  --       return vim_item
-  --      end
-  -- }
-       })  '';
+       -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+       cmp.setup.cmdline(':', {
+         sources = cmp.config.sources({
+           { name = 'path' }
+         }, {
+           { name = 'cmdline' }
+         }),
+    --      formatting = {
+    --       format = function(_, vim_item)
+    --         vim_item.kind = cmdIcons[vim_item.kind] or "FOO"
+    --       return vim_item
+    --      end
+    -- }
+         })  '';
 
   # colorschemes.catppuccin = {
   #   enable = true;
@@ -914,16 +968,26 @@
       zoxide-vim
       glow-nvim # Glow inside of Neovim
       clipboard-image-nvim
+      (pkgs.vimUtils.buildVimPlugin {
+        pname = "nvim-recorder";
+        version = "";
+        src = pkgs.fetchFromGitHub {
+          owner = "chrisgrieser";
+          repo = "nvim-recorder";
+          rev = "a3c268f706ffec4428ea74bba6dfa3a0b20afa37";
+          hash = "sha256-7Uzd1SHuMjdVmqvjnktdW5jiIvdgP7L3AIIFFOFDngA=";
+        };
+      })
     ];
     #    ++ [
-    #      (pkgs.vimUtils.buildVimPlugin {
+    #      (pkgs.vimutils.buildvimplugin {
     #      pname = "markview.nvim";
     #      version = "0.0.1";
-    #      src = pkgs.fetchFromGitHub {
-    #        owner = "OXY2DEV";
+    #      src = pkgs.fetchfromgithub {
+    #        owner = "oxy2dev";
     #        repo = "markview.nvim";
     #        rev = "a959d77ca7e9f05175e3ee4e582db40b338c9164";
-    #        hash = "sha256-w6yn8aNcJMLRbzaRuj3gj4x2J/20wUROLM6j39wpZek=";
+    #        hash = "sha256-w6yn8ancjmlrbzaruj3gj4x2j/20wurolm6j39wpzek=";
     #      };
     #    })
     #      # Just copy this block for a new plugin
@@ -937,4 +1001,4 @@
     #      #   };
     #      # })
     #    ];
-}
+    }

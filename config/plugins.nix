@@ -570,7 +570,7 @@
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
             keywordLength = 3;
           }
-          # { name = "copilot"; } # enable/disable copilot
+          { name = "copilot"; } # enable/disable copilot
           {
             name = "path"; # file system paths
             keywordLength = 3;
@@ -612,6 +612,14 @@
           '';
         };
       };
+    };
+    copilot-lua = {
+      enable = true;
+      panel.enabled = false;
+      suggestion.enabled = false;
+    };
+    copilot-cmp = {
+      enable = true;
     };
     cmp-nvim-lsp = {
       enable = true; # LSP
@@ -978,7 +986,16 @@
           hash = "sha256-7Uzd1SHuMjdVmqvjnktdW5jiIvdgP7L3AIIFFOFDngA=";
         };
       })
-    ];
+      (pkgs.vimUtils.buildVimPlugin {
+        pname = "showkeys";
+        version = "";
+        src = pkgs.fetchFromGitHub {
+          owner = "nvzone";
+          repo = "showkeys";
+          rev = "38a5d15ef687da37ef0de3d6944b9eb6830982f3";
+          hash = "sha256-OeQoRb5nRT5piUzakq8uQdQFWvqockffTAM9plv06BI=";
+        };
+      })    ];
     #    ++ [
     #      (pkgs.vimutils.buildvimplugin {
     #      pname = "markview.nvim";

@@ -44,7 +44,7 @@
       };
       vim-matchup = {
         enable = true;
-        treesitterIntegration.enable = true;
+        treesitter.enable = true;
       };
       ts-autotag.enable = true;
       project-nvim.enable = true;

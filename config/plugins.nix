@@ -113,7 +113,7 @@
         };
         completion = {
           luasnip.enable = true;
-          spell.enable = true;
+          # spell.enable = true;
         };
       };
     };

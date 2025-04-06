@@ -465,7 +465,7 @@
         vuels.enable = false; # Vue
         pyright.enable = true; # Python
         marksman.enable = true; # Markdown
-        nil_ls.enable = true; # Nix
+        nixd.enable = true; # Nix
         dockerls.enable = true; # Docker
         bashls.enable = true; # Bash
         clangd.enable = true; # C/C++

@@ -1,6 +1,5 @@
-{self, ...}:{
+{ self, ... }: {
   keymaps = [
-
     ## General ##
     # Select all
     {
@@ -52,12 +51,12 @@
 
     # Change L and H to mirror $ and _
     {
-      mode = ["n" "x" "o"];
+      mode = [ "n" "x" "o" ];
       key = "L";
       action = "$";
     }
     {
-      mode = ["n" "x" "o"];
+      mode = [ "n" "x" "o" ];
       key = "H";
       action = "^";
     }
@@ -88,7 +87,7 @@
         desc = "Rehighlight selection after indenting";
       };
     }
-    
+
     # Change c key so it doesn't copy to register
     {
       mode = "n";
@@ -115,7 +114,7 @@
       key = ";";
       action = ":";
     }
-    
+
     # Cd into the current directory
     {
       mode = "n";
@@ -137,6 +136,38 @@
     }
 
     ## Program specific ##
+
+    # Harpoon
+    {
+      mode = "n";
+      key = "<leader>ha";
+      action.__raw = "function() require'harpoon':list():add() end";
+    }
+    {
+      mode = "n";
+      key = "<leader>hh";
+      action.__raw = "function() require'harpoon'.ui:toggle_quick_menu(require'harpoon':list()) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>hi";
+      action.__raw = "function() require'harpoon':list():select(1) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>hj";
+      action.__raw = "function() require'harpoon':list():select(2) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>hk";
+      action.__raw = "function() require'harpoon':list():select(3) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>hl";
+      action.__raw = "function() require'harpoon':list():select(4) end";
+    }
 
     # Lazygit
     {

@@ -52,7 +52,7 @@
       enable = true;
     };
 
-    # Icons 
+    # Icons
     web-devicons.enable = true;
 
     # Persistence
@@ -108,7 +108,6 @@
                 extra_args = { "--fast" },
               }
             '';
-
           };
         };
         completion = {
@@ -126,14 +125,32 @@
     # Notify
     notify = {
       enable = true;
-      backgroundColour = "#1e1e2e";
-      fps = 60;
-      render = "default";
-      timeout = 500;
-      topDown = true;
+      settings = {
+        background_colour = "#1e1e2e";
+        fps = 60;
+        render = "default";
+        timeout = 500;
+        top_down = true;
+      };
     };
 
     # Debugger
+    dap-python = {
+      enable = true;
+    };
+    dap-ui = {
+      enable = true;
+      settings = {
+        floating = {
+          mappings = {
+            close = [ "<ESC>" "q" ];
+          };
+        };
+      };
+    };
+    dap-virtual-text = {
+      enable = true;
+    };
     dap = {
       enable = true;
       signs = {
@@ -148,20 +165,6 @@
         dapLogPoint = {
           text = "◆";
           texthl = "DapLogPoint";
-        };
-      };
-      extensions = {
-        dap-python = {
-          enable = true;
-        };
-        dap-ui = {
-          enable = true;
-          floating.mappings = {
-            close = [ "<ESC>" "q" ];
-          };
-        };
-        dap-virtual-text = {
-          enable = true;
         };
       };
       configurations = {
@@ -199,7 +202,7 @@
       enable = true;
     };
 
-    # Friendly Snippets 
+    # Friendly Snippets
     friendly-snippets = {
       enable = true;
     };
@@ -301,7 +304,6 @@
       };
     };
 
-
     # Markdown preview server
     markdown-preview = {
       enable = true;
@@ -352,25 +354,27 @@
 
     image = {
       enable = true;
-      backend = "kitty";
-      hijackFilePatterns = [
-        "*.png"
-        "*.jpg"
-        "*.jpeg"
-        "*.gif"
-        "*.webp"
-      ];
-      maxHeightWindowPercentage = 25;
-      tmuxShowOnlyInActiveWindow = true;
-      integrations = {
-        markdown = {
-          enabled = true;
-          downloadRemoteImages = true;
-          filetypes = [
-            "markdown"
-            "vimwiki"
-            "mdx"
-          ];
+      settings = {
+        backend = "kitty";
+        hijack_file_patterns = [
+          "*.png"
+          "*.jpg"
+          "*.jpeg"
+          "*.gif"
+          "*.webp"
+        ];
+        max_height_window_percentage = 25;
+        tmux_show_only_inactive_window = true;
+        integrations = {
+          markdown = {
+            enabled = true;
+            downloadRemoteImages = true;
+            filetypes = [
+              "markdown"
+              "vimwiki"
+              "mdx"
+            ];
+          };
         };
       };
     };
@@ -615,8 +619,10 @@
     };
     copilot-lua = {
       enable = true;
-      panel.enabled = false;
-      suggestion.enabled = false;
+      settings = {
+        panel.enabled = false;
+        suggestion.enabled = false;
+      };
     };
     copilot-cmp = {
       enable = true;
@@ -654,119 +660,10 @@
       json.enable = false;
     };
 
-    fidget = {
-      enable = true;
-      logger = {
-        level = "warn"; # “off”, “error”, “warn”, “info”, “debug”, “trace”
-        floatPrecision = 0.01; # Limit the number of decimals displayed for floats
-      };
-      progress = {
-        pollRate = 0; # How and when to poll for progress messages
-        suppressOnInsert = true; # Suppress new messages while in insert mode
-        ignoreDoneAlready = false; # Ignore new tasks that are already complete
-        ignoreEmptyMessage = false; # Ignore new tasks that don't contain a message
-        clearOnDetach =
-          # Clear notification group when LSP server detaches
-          ''
-            function(client_id)
-              local client = vim.lsp.get_client_by_id(client_id)
-              return client and client.name or nil
-            end
-          '';
-        notificationGroup =
-          # How to get a progress message's notification group key
-          ''
-            function(msg) return msg.lsp_client.name end
-          '';
-        ignore = [ ]; # List of LSP servers to ignore
-        lsp = {
-          progressRingbufSize = 0; # Configure the nvim's LSP progress ring buffer size
-        };
-        display = {
-          renderLimit = 16; # How many LSP messages to show at once
-          doneTtl = 3; # How long a message should persist after completion
-          doneIcon = "✔"; # Icon shown when all LSP progress tasks are complete
-          doneStyle = "Constant"; # Highlight group for completed LSP tasks
-          progressTtl = "math.huge"; # How long a message should persist when in progress
-          progressIcon = {
-            pattern = "dots";
-            period = 1;
-          }; # Icon shown when LSP progress tasks are in progress
-          progressStyle = "WarningMsg"; # Highlight group for in-progress LSP tasks
-          groupStyle = "Title"; # Highlight group for group name (LSP server name)
-          iconStyle = "Question"; # Highlight group for group icons
-          priority = 30; # Ordering priority for LSP notification group
-          skipHistory = true; # Whether progress notifications should be omitted from history
-          formatMessage = ''
-            require ("fidget.progress.display").default_format_message
-          ''; # How to format a progress message
-          formatAnnote = ''
-            function (msg) return msg.title end
-          ''; # How to format a progress annotation
-          formatGroupName = ''
-            function (group) return tostring (group) end
-          ''; # How to format a progress notification group's name
-          overrides = {
-            rust_analyzer = {
-              name = "rust-analyzer";
-            };
-          }; # Override options from the default notification config
-        };
-      };
-      notification = {
-        pollRate = 10; # How frequently to update and render notifications
-        filter = "info"; # “off”, “error”, “warn”, “info”, “debug”, “trace”
-        historySize = 128; # Number of removed messages to retain in history
-        overrideVimNotify = true;
-        redirect = ''
-          function(msg, level, opts)
-            if opts and opts.on_open then
-              return require("fidget.integration.nvim-notify").delegate(msg, level, opts)
-            end
-          end
-        '';
-        configs = {
-          default = "require('fidget.notification').default_config";
-        };
-
-        window = {
-          normalHl = "Comment";
-          winblend = 0;
-          border = "none"; # none, single, double, rounded, solid, shadow
-          zindex = 45;
-          maxWidth = 0;
-          maxHeight = 0;
-          xPadding = 1;
-          yPadding = 0;
-          align = "bottom";
-          relative = "editor";
-        };
-        view = {
-          stackUpwards = true; # Display notification items from bottom to top
-          iconSeparator = " "; # Separator between group name and icon
-          groupSeparator = "---"; # Separator between notification groups
-          groupSeparatorHl =
-            # Highlight group used for group separator
-            "Comment";
-        };
-      };
-    };
-
     # Harpoon
     harpoon = {
       enable = true;
       enableTelescope = true;
-      keymapsSilent = true;
-      keymaps = {
-        addFile = "<leader>ha";
-        toggleQuickMenu = "<leader>hh";
-        navFile = {
-          "1" = "<leader>hj";
-          "2" = "<leader>hk";
-          "3" = "<leader>hl";
-          "4" = "<leader>hm";
-        };
-      };
     };
 
     # Leap
@@ -804,7 +701,7 @@
       	-- The first register is the default register used as macro-slot after
       	-- startup.
       	slots = { "a", "b" },
-      
+    
       	mapping = {
       		startStopRecording = "q",
       		playMacro = "Q",
@@ -815,22 +712,22 @@
       		-- ⚠️ this should be a string you don't use in insert mode during a macro
       		addBreakPoint = "##",
       	},
-      
+    
       	-- Clears all macros-slots on startup.
       	clear = false,
-      
+    
       	-- Log level used for non-critical notifications; mostly relevant for nvim-notify.
       	-- (Note that by default, nvim-notify does not show the levels `trace` & `debug`.)
       	logLevel = vim.log.levels.INFO, -- :help vim.log.levels
-      
+    
       	-- If enabled, only essential notifications are sent.
       	-- If you do not use a plugin like nvim-notify, set this to `true`
       	-- to remove otherwise annoying messages.
       	lessNotifications = false,
-      
+    
       	-- Use nerdfont icons in the status bar components and keymap descriptions
       	useNerdfontIcons = true,
-      
+    
       	-- Performance optimzations for macros with high count. When `playMacro` is
       	-- triggered with a count higher than the threshold, nvim-recorder
       	-- temporarily changes changes some settings for the duration of the macro.
@@ -846,7 +743,7 @@
       			"InsertCharPre",
       		},
       	},
-      
+    
       	-- [experimental] partially share keymaps with nvim-dap.
       	-- (See README for further explanations.)
       	dapSharedKeymaps = false,
@@ -970,52 +867,52 @@
   #   # accelerated-jk
   # ];
 
-  extraPlugins = with pkgs.vimPlugins;
-    [
-      flit-nvim
-      zoxide-vim
-      glow-nvim # Glow inside of Neovim
-      clipboard-image-nvim
-      (pkgs.vimUtils.buildVimPlugin {
-        pname = "nvim-recorder";
-        version = "";
-        src = pkgs.fetchFromGitHub {
-          owner = "chrisgrieser";
-          repo = "nvim-recorder";
-          rev = "a3c268f706ffec4428ea74bba6dfa3a0b20afa37";
-          hash = "sha256-7Uzd1SHuMjdVmqvjnktdW5jiIvdgP7L3AIIFFOFDngA=";
-        };
-      })
-      (pkgs.vimUtils.buildVimPlugin {
-        pname = "showkeys";
-        version = "";
-        src = pkgs.fetchFromGitHub {
-          owner = "nvzone";
-          repo = "showkeys";
-          rev = "38a5d15ef687da37ef0de3d6944b9eb6830982f3";
-          hash = "sha256-OeQoRb5nRT5piUzakq8uQdQFWvqockffTAM9plv06BI=";
-        };
-      })    ];
-    #    ++ [
-    #      (pkgs.vimutils.buildvimplugin {
-    #      pname = "markview.nvim";
-    #      version = "0.0.1";
-    #      src = pkgs.fetchfromgithub {
-    #        owner = "oxy2dev";
-    #        repo = "markview.nvim";
-    #        rev = "a959d77ca7e9f05175e3ee4e582db40b338c9164";
-    #        hash = "sha256-w6yn8ancjmlrbzaruj3gj4x2j/20wurolm6j39wpzek=";
-    #      };
-    #    })
-    #      # Just copy this block for a new plugin
-    #      # (pkgs.vimUtils.buildVimPlugin {
-    #      #   pname = "";
-    #      #   src = pkgs.fetchFromGitHub {
-    #      #     owner = "";
-    #      #     repo = "";
-    #      #     rev = "";
-    #      #     sha256 = "";
-    #      #   };
-    #      # })
-    #    ];
-    }
+  extraPlugins = with pkgs.vimPlugins; [
+    flit-nvim
+    zoxide-vim
+    glow-nvim # Glow inside of Neovim
+    clipboard-image-nvim
+    (pkgs.vimUtils.buildVimPlugin {
+      pname = "nvim-recorder";
+      version = "";
+      src = pkgs.fetchFromGitHub {
+        owner = "chrisgrieser";
+        repo = "nvim-recorder";
+        rev = "a3c268f706ffec4428ea74bba6dfa3a0b20afa37";
+        hash = "sha256-7Uzd1SHuMjdVmqvjnktdW5jiIvdgP7L3AIIFFOFDngA=";
+      };
+    })
+    (pkgs.vimUtils.buildVimPlugin {
+      pname = "showkeys";
+      version = "";
+      src = pkgs.fetchFromGitHub {
+        owner = "nvzone";
+        repo = "showkeys";
+        rev = "38a5d15ef687da37ef0de3d6944b9eb6830982f3";
+        hash = "sha256-OeQoRb5nRT5piUzakq8uQdQFWvqockffTAM9plv06BI=";
+      };
+    })
+  ];
+  #    ++ [
+  #      (pkgs.vimutils.buildvimplugin {
+  #      pname = "markview.nvim";
+  #      version = "0.0.1";
+  #      src = pkgs.fetchfromgithub {
+  #        owner = "oxy2dev";
+  #        repo = "markview.nvim";
+  #        rev = "a959d77ca7e9f05175e3ee4e582db40b338c9164";
+  #        hash = "sha256-w6yn8ancjmlrbzaruj3gj4x2j/20wurolm6j39wpzek=";
+  #      };
+  #    })
+  #      # Just copy this block for a new plugin
+  #      # (pkgs.vimUtils.buildVimPlugin {
+  #      #   pname = "";
+  #      #   src = pkgs.fetchFromGitHub {
+  #      #     owner = "";
+  #      #     repo = "";
+  #      #     rev = "";
+  #      #     sha256 = "";
+  #      #   };
+  #      # })
+  #    ];
+}

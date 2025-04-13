@@ -1,6 +1,15 @@
 { self, ... }: {
   keymaps = [
     ## General ##
+    # LSP Format
+    {
+      mode = "n";
+      key = "<leader>f";
+      action = "<cmd>lua vim.lsp.buf.format()<CR>";
+      options = {
+        desc = "Format buffer";
+      };
+    }
     # Select all
     {
       mode = "n";
@@ -142,31 +151,49 @@
       mode = "n";
       key = "<leader>ha";
       action.__raw = "function() require'harpoon':list():add() end";
+      options = {
+        desc = "Harpoon Add";
+      };
     }
     {
       mode = "n";
       key = "<leader>hh";
       action.__raw = "function() require'harpoon'.ui:toggle_quick_menu(require'harpoon':list()) end";
+      options = {
+        desc = "Harpoon Menu";
+      };
     }
     {
       mode = "n";
       key = "<leader>hi";
       action.__raw = "function() require'harpoon':list():select(1) end";
+      options = {
+        desc = "Select 1";
+      };
     }
     {
       mode = "n";
       key = "<leader>hj";
       action.__raw = "function() require'harpoon':list():select(2) end";
+      options = {
+        desc = "Select 2";
+      };
     }
     {
       mode = "n";
       key = "<leader>hk";
       action.__raw = "function() require'harpoon':list():select(3) end";
+      options = {
+        desc = "Select 3";
+      };
     }
     {
       mode = "n";
       key = "<leader>hl";
       action.__raw = "function() require'harpoon':list():select(4) end";
+      options = {
+        desc = "Select 4";
+      };
     }
 
     # Lazygit

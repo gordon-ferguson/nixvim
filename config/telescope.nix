@@ -109,15 +109,6 @@ _: {
         };
       }
       {
-        key = "<leader>ff";
-        mode = [ "n" "v" ];
-        action.__raw = ''function() require("telescope.builtin").find_files() end'';
-        options = {
-          silent = true;
-          desc = "Find Files";
-        };
-      }
-      {
         key = "<leader>sF";
         mode = [ "n" "v" ];
         action.__raw = ''function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end'';

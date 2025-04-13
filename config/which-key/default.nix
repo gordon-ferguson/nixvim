@@ -9,6 +9,10 @@ _: {
           icon = "";
         }
         {
+          __unkeyed-1 = "<leader>h";
+          group = "Harpoon";
+        }
+        {
           __unkeyed-1 = "<leader>s";
           group = "Search";
           icon = "";

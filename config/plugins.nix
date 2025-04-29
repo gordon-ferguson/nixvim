@@ -464,6 +464,7 @@
         tailwindcss.enable = true; # TailwindCSS
         html.enable = true; # HTML
         astro.enable = true; # AstroJS
+        tinymist.enable = true; #Typst 
         phpactor.enable = true; # PHP
         svelte.enable = false; # Svelte
         vuels.enable = false; # Vue
@@ -678,6 +679,10 @@
 
     # Surround
     nvim-surround = {
+      enable = true;
+    };
+    # Typst-Preview
+    typst-preview = {
       enable = true;
     };
   };

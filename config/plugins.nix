@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   plugins = {
     # Navigate Tmux with the same keybindings as Neovim
+    colorizer.enable = true;
     tmux-navigator = {
       enable = true;
       keymaps = [

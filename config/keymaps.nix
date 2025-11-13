@@ -74,7 +74,7 @@
     {
       mode = "n";
       key = "<localleader>p";
-      action = "<cmd>setlocal spell! spelllang=en_us nowrap! linebreak!<CR>";
+      action = "<cmd>setlocal spell! spelllang=en_us nowrap! linebreak!<CR><cmd>if &spell | setlocal colorcolumn=81 | else | setlocal colorcolumn= | endif<CR>";
       options = {
         desc = "Prose mode";
       };

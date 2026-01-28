@@ -6,7 +6,7 @@ neovim configuration.
 ## Try it out yourself!
 
 To test your configuration simply clone the repository (with either Nix or
- NixOS installed) and run the following command
+ NixOS installed), enter the directory, and run the following command
 
 ```
 nix run .

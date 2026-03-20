@@ -206,7 +206,25 @@
       };
     }
 
-    # Oil
+    # Leap keymaps
+    {
+      mode = [ "n" "x" "o" ];
+      key = "s";
+      action = "<Plug>(leap)";
+      options = {
+        desc = "Leap";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "S";
+      action = "<Plug>(leap-from-window)";
+      options = {
+        desc = "Leap from window";
+        silent = true;
+      };
+    } # Oil
     {
       mode = "n";
       key = "<localleader><localleader>";

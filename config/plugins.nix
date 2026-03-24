@@ -53,6 +53,11 @@
       enable = true;
     };
 
+    # Claude
+    claude-code = {
+      enable = true;
+    };
+
     # Icons
     web-devicons.enable = true;
 

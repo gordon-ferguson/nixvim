@@ -5,7 +5,7 @@
     {
       mode = "n";
       key = "<leader>f";
-      action = "<cmd>lua vim.lsp.buf.format()<CR>";
+      action = "<cmd>lua require('conform').format({ timeout_ms = 500, lsp_format = 'fallback' })<CR>";
       options = {
         desc = "Format buffer";
       };

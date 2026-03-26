@@ -79,47 +79,32 @@
     #   enable = true;
     # };
 
-    # LSP
-    none-ls = {
+    # Formatting
+    conform-nvim = {
       enable = true;
       settings = {
-        cmd = [ "bash -c nvim" ];
-        debug = true;
-      };
-      sources = {
-        code_actions = {
-          statix.enable = true;
-          gitsigns.enable = true;
+        formatters_by_ft = {
+          nix = [ "alejandra" ];
+          lua = [ "stylua" ];
+          sh = [ "shfmt" ];
+          bash = [ "shfmt" ];
+          python = [ "black" ];
+          javascript = [ "prettier" ];
+          typescript = [ "prettier" ];
+          javascriptreact = [ "prettier" ];
+          typescriptreact = [ "prettier" ];
+          html = [ "prettier" ];
+          css = [ "prettier" ];
+          json = [ "prettier" ];
+          yaml = [ "prettier" ];
+          markdown = [ "prettier" ];
+          astro = [ "prettier" ];
         };
-        diagnostics = {
-          statix.enable = true;
-          deadnix.enable = true;
-          pylint.enable = true;
-          checkstyle.enable = true;
+        format_on_save = {
+          timeout_ms = 500;
+          lsp_format = "fallback";
         };
-        formatting = {
-          alejandra.enable = true;
-          stylua.enable = true;
-          shfmt.enable = true;
-          nixpkgs_fmt.enable = true;
-          google_java_format.enable = false;
-          prettier = {
-            enable = true;
-            disableTsServerFormatter = true;
-          };
-          black = {
-            enable = true;
-            settings = ''
-              {
-                extra_args = { "--fast" },
-              }
-            '';
-          };
-        };
-        completion = {
-          luasnip.enable = true;
-          # spell.enable = true;
-        };
+        notify_on_error = true;
       };
     };
 
@@ -190,6 +175,9 @@
     lint = {
       enable = true;
       lintersByFt = {
+        nix = [ "statix" "deadnix" ];
+        python = [ "pylint" ];
+        java = [ "checkstyle" ];
         text = [ "vale" ];
         json = [ "jsonlint" ];
         markdown = [ "vale" ];
@@ -883,6 +871,14 @@
   #   headlines-nvim
   #   # accelerated-jk
   # ];
+
+  extraPackages = with pkgs; [
+    alejandra
+    stylua
+    shfmt
+    black
+    nodePackages.prettier
+  ];
 
   extraPlugins = with pkgs.vimPlugins; [
     flit-nvim

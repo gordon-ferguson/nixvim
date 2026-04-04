@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   plugins = {
     # Navigate Tmux with the same keybindings as Neovim
     colorizer.enable = true;
@@ -84,21 +84,21 @@
       enable = true;
       settings = {
         formatters_by_ft = {
-          nix = [ "alejandra" ];
-          lua = [ "stylua" ];
-          sh = [ "shfmt" ];
-          bash = [ "shfmt" ];
-          python = [ "black" ];
-          javascript = [ "prettier" ];
-          typescript = [ "prettier" ];
-          javascriptreact = [ "prettier" ];
-          typescriptreact = [ "prettier" ];
-          html = [ "prettier" ];
-          css = [ "prettier" ];
-          json = [ "prettier" ];
-          yaml = [ "prettier" ];
-          markdown = [ "prettier" ];
-          astro = [ "prettier" ];
+          nix = ["nixfmt"];
+          lua = ["stylua"];
+          sh = ["shfmt"];
+          bash = ["shfmt"];
+          python = ["black"];
+          javascript = ["prettier"];
+          typescript = ["prettier"];
+          javascriptreact = ["prettier"];
+          typescriptreact = ["prettier"];
+          html = ["prettier"];
+          css = ["prettier"];
+          json = ["prettier"];
+          yaml = ["prettier"];
+          markdown = ["prettier"];
+          astro = ["prettier"];
         };
         format_on_save = {
           timeout_ms = 500;
@@ -134,7 +134,7 @@
       settings = {
         floating = {
           mappings = {
-            close = [ "<ESC>" "q" ];
+            close = ["<ESC>" "q"];
           };
         };
       };
@@ -175,19 +175,19 @@
     lint = {
       enable = true;
       lintersByFt = {
-        nix = [ "statix" "deadnix" ];
-        python = [ "pylint" ];
-        java = [ "checkstyle" ];
-        text = [ "vale" ];
-        json = [ "jsonlint" ];
-        markdown = [ "vale" ];
-        rst = [ "vale" ];
-        ruby = [ "ruby" ];
-        janet = [ "janet" ];
-        inko = [ "inko" ];
-        clojure = [ "clj-kondo" ];
-        dockerfile = [ "hadolint" ];
-        terraform = [ "tflint" ];
+        nix = ["statix" "deadnix"];
+        python = ["pylint"];
+        java = ["checkstyle"];
+        text = ["vale"];
+        json = ["jsonlint"];
+        markdown = ["vale"];
+        rst = ["vale"];
+        ruby = ["ruby"];
+        janet = ["janet"];
+        inko = ["inko"];
+        clojure = ["clj-kondo"];
+        dockerfile = ["hadolint"];
+        terraform = ["tflint"];
       };
     };
 
@@ -211,67 +211,67 @@
       fromSnipmate = [
         {
           paths = ./vim-snippets/snippets/markdown.snippets;
-          include = [ "markdown" ];
+          include = ["markdown"];
         }
         {
           paths = ./vim-snippets/snippets/html.snippets;
-          include = [ "html" ];
+          include = ["html"];
         }
         {
           paths = ./vim-snippets/snippets/go.snippets;
-          include = [ "go" ];
+          include = ["go"];
         }
         {
           paths = ./vim-snippets/snippets/rust.snippets;
-          include = [ "rust" ];
+          include = ["rust"];
         }
         {
           paths = ./vim-snippets/snippets/php.snippets;
-          include = [ "php" ];
+          include = ["php"];
         }
         {
           paths = ./vim-snippets/snippets/lua.snippets;
-          include = [ "lua" ];
+          include = ["lua"];
         }
         {
           paths = ./vim-snippets/snippets/c.snippets;
-          include = [ "c" ];
+          include = ["c"];
         }
         {
           paths = ./vim-snippets/snippets/css.snippets;
-          include = [ "css" ];
+          include = ["css"];
         }
         {
           paths = ./vim-snippets/snippets/javascript/javascript.snippets;
-          include = [ "javascript" ];
+          include = ["javascript"];
         }
         {
           paths = ./vim-snippets/snippets/javascript/javascript-react.snippets;
-          include = [ "javascript-react" ];
+          include = ["javascript-react"];
         }
         {
           paths = ./vim-snippets/UltiSnips/javascript-node.snippets;
-          include = [ "javascript-node" ];
+          include = ["javascript-node"];
         }
         {
           paths = ./vim-snippets/snippets/typescript.snippets;
-          include = [ "typescript" ];
+          include = ["typescript"];
         }
         {
           paths = ./vim-snippets/snippets/typescriptreact.snippets;
-          include = [ "typescript-react" ];
+          include = ["typescript-react"];
         }
         {
           paths = ./vim-snippets/snippets/sh.snippets;
-          include = [ "sh" ];
+          include = ["sh"];
         }
         {
           paths = ./vim-snippets/snippets/bash.snippets;
-          include = [ "bash" ];
+          include = ["bash"];
         }
         {
           paths = ./vim-snippets/snippets/zsh.snippets;
-          include = [ "zsh" ];
+          include = ["zsh"];
         }
       ];
     };
@@ -387,12 +387,12 @@
     todo-comments = {
       enable = true;
       settings.colors = {
-        error = [ "DiagnosticError" "ErrorMsg" "#DC2626" ];
-        warning = [ "DiagnosticWarn" "WarningMsg" "#FBBF24" ];
-        info = [ "DiagnosticInfo" "#2563EB" ];
-        hint = [ "DiagnosticHint" "#10B981" ];
-        default = [ "Identifier" "#7C3AED" ];
-        test = [ "Identifier" "#FF00FF" ];
+        error = ["DiagnosticError" "ErrorMsg" "#DC2626"];
+        warning = ["DiagnosticWarn" "WarningMsg" "#FBBF24"];
+        info = ["DiagnosticInfo" "#2563EB"];
+        hint = ["DiagnosticHint" "#10B981"];
+        default = ["Identifier" "#7C3AED"];
+        test = ["Identifier" "#FF00FF"];
       };
     };
 
@@ -479,7 +479,7 @@
         ltex = {
           enable = true;
           settings = {
-            enabled = [ "astro" "html" "latex" "markdown" "text" "tex" "gitcommit" ];
+            enabled = ["astro" "html" "latex" "markdown" "text" "tex" "gitcommit"];
             completionEnabled = true;
             language = "en-US de-DE nl";
             # dictionary = {
@@ -553,7 +553,7 @@
           completeopt = "menu,menuone,noinsert";
         };
         autoEnableSources = true;
-        experimental = { ghost_text = true; };
+        experimental = {ghost_text = true;};
         performance = {
           debounce = 60;
           fetchingTimeout = 200;
@@ -566,16 +566,16 @@
             end
           '';
         };
-        formatting = { fields = [ "kind" "abbr" "menu" ]; };
+        formatting = {fields = ["kind" "abbr" "menu"];};
         sources = [
-          { name = "nvim_lsp"; }
-          { name = "emoji"; }
+          {name = "nvim_lsp";}
+          {name = "emoji";}
           {
             name = "buffer"; # text within current buffer
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
             keywordLength = 3;
           }
-          { name = "copilot"; } # enable/disable copilot
+          {name = "copilot";} # enable/disable copilot
           {
             name = "path"; # file system paths
             keywordLength = 3;
@@ -587,8 +587,8 @@
         ];
 
         window = {
-          completion = { border = "solid"; };
-          documentation = { border = "solid"; };
+          completion = {border = "solid";};
+          documentation = {border = "solid";};
         };
 
         mapping = {
@@ -706,7 +706,7 @@
       	-- The first register is the default register used as macro-slot after
       	-- startup.
       	slots = { "a", "b" },
-      
+    
       	mapping = {
       		startStopRecording = "q",
       		playMacro = "Q",
@@ -717,22 +717,22 @@
       		-- ⚠️ this should be a string you don't use in insert mode during a macro
       		addBreakPoint = "##",
       	},
-      
+    
       	-- Clears all macros-slots on startup.
       	clear = false,
-      
+    
       	-- Log level used for non-critical notifications; mostly relevant for nvim-notify.
       	-- (Note that by default, nvim-notify does not show the levels `trace` & `debug`.)
       	logLevel = vim.log.levels.INFO, -- :help vim.log.levels
-      
+    
       	-- If enabled, only essential notifications are sent.
       	-- If you do not use a plugin like nvim-notify, set this to `true`
       	-- to remove otherwise annoying messages.
       	lessNotifications = false,
-      
+    
       	-- Use nerdfont icons in the status bar components and keymap descriptions
       	useNerdfontIcons = true,
-      
+    
       	-- Performance optimzations for macros with high count. When `playMacro` is
       	-- triggered with a count higher than the threshold, nvim-recorder
       	-- temporarily changes changes some settings for the duration of the macro.
@@ -748,7 +748,7 @@
       			"InsertCharPre",
       		},
       	},
-      
+    
       	-- [experimental] partially share keymaps with nvim-dap.
       	-- (See README for further explanations.)
       	dapSharedKeymaps = false,

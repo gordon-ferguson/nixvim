@@ -13,19 +13,6 @@
       treesitter = {
         enable = true;
         settings = {
-          ensure_installed = [
-            "bash"
-            "c"
-            "fish"
-            "lua"
-            "hyprlang"
-            "javascript"
-            "python"
-            "vim"
-            "vimdoc"
-            "markdown"
-            "markdown_inline"
-          ];
           grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
             bash
             fish

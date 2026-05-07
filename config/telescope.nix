@@ -3,7 +3,6 @@ _: {
     plugins = {
       telescope = {
         enable = true;
-        settings = { };
         settings = {
           pickers.colorscheme.enable_preview = true;
           file_ignore_patterns = [ "node%_modules/.*" ];
@@ -29,7 +28,10 @@ _: {
           };
         };
       };
-      project-nvim.enableTelescope = true;
+      project-nvim = {
+        enable = true;
+        enableTelescope = true;
+      };
     };
 
     # colorschemes.catppuccin.customHighlights = {

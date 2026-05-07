@@ -1,33 +1,7 @@
 { pkgs, ... }:
 {
   plugins = {
-    # Navigate Tmux with the same keybindings as Neovim
     colorizer.enable = true;
-    tmux-navigator = {
-      enable = true;
-      keymaps = [
-        {
-          action = "left";
-          key = "<C-w>h";
-        }
-        {
-          action = "down";
-          key = "<C-w>j";
-        }
-        {
-          action = "up";
-          key = "<C-w>k";
-        }
-        {
-          action = "right";
-          key = "<C-w>l";
-        }
-        {
-          action = "previous";
-          key = "<C-w>\\";
-        }
-      ];
-    };
 
     # Status bar
     lualine = {
@@ -44,11 +18,6 @@
       enable = true;
     };
 
-    # Includes all parsers for treesitter
-    treesitter = {
-      enable = true;
-    };
-
     # Claude
     claude-code = {
       enable = true;
@@ -62,10 +31,7 @@
       enable = true;
     };
 
-    # Auto-tagging
-    ts-autotag = {
-      enable = true;
-    };
+    ts-autotag.enable = true;
 
     # # Autopairs
     # nvim-autopairs = {
@@ -77,7 +43,7 @@
       enable = true;
       settings = {
         formatters_by_ft = {
-          nix = [ "nixfmt" ];
+          nix = [ "alejandra" ];
           lua = [ "stylua" ];
           sh = [ "shfmt" ];
           bash = [ "shfmt" ];
@@ -175,15 +141,9 @@
           "statix"
           "deadnix"
         ];
-        python = [ "pylint" ];
-        java = [ "checkstyle" ];
         text = [ "vale" ];
-        json = [ "jsonlint" ];
         markdown = [ "vale" ];
         rst = [ "vale" ];
-        ruby = [ "ruby" ];
-        janet = [ "janet" ];
-        inko = [ "inko" ];
         clojure = [ "clj-kondo" ];
         dockerfile = [ "hadolint" ];
         terraform = [ "tflint" ];
@@ -293,7 +253,7 @@
     gitsigns = {
       enable = true;
       settings = {
-        current_line_blame = true;
+        current_line_blame = false;
       };
     };
 
@@ -306,7 +266,7 @@
     render-markdown = {
       enable = true;
       settings = {
-        enabled = true; # This lets you set whether the plugin should render documents from the start or not. Useful if you want to use a command like RenderMarkdown enable to start rendering documents rather than having it on by default.
+        enabled = false;
         bullet = {
           icons = [
             "•"
@@ -341,33 +301,6 @@
         render_modes = true;
         signs = {
           enabled = false;
-        };
-      };
-    };
-
-    image = {
-      enable = true;
-      settings = {
-        backend = "kitty";
-        hijack_file_patterns = [
-          "*.png"
-          "*.jpg"
-          "*.jpeg"
-          "*.gif"
-          "*.webp"
-        ];
-        max_height_window_percentage = 25;
-        tmux_show_only_inactive_window = true;
-        integrations = {
-          markdown = {
-            enabled = true;
-            downloadRemoteImages = true;
-            filetypes = [
-              "markdown"
-              "vimwiki"
-              "mdx"
-            ];
-          };
         };
       };
     };
@@ -655,16 +588,10 @@
     };
   };
 
-  extraConfigVim = "";
-
   extraConfigLuaPre = ''
-    if vim.g.have_nerd_font then
-      require('nvim-web-devicons').setup {}
-    end
-  '';
-
-  extraConfigLuaPost = ''
-    -- vim: ts=2 sts=2 sw=2 et
+    local data_dir = vim.fn.stdpath("data")
+    vim.fn.mkdir(data_dir, "p")
+    vim.fn.mkdir(data_dir .. "/project_nvim", "p")
   '';
 
   extraConfigLua = ''
@@ -734,8 +661,33 @@
 
       require("telescope").load_extension("lazygit")
 
-      luasnip = require("luasnip")
-      kind_icons = {
+      if #vim.api.nvim_list_uis() > 0 then
+        require("image").setup {
+          backend = "kitty",
+          hijack_file_patterns = {
+            "*.png",
+            "*.jpg",
+            "*.jpeg",
+            "*.gif",
+            "*.webp",
+          },
+          max_height_window_percentage = 25,
+          tmux_show_only_inactive_window = true,
+          integrations = {
+            markdown = {
+              enabled = true,
+              download_remote_images = false,
+              filetypes = {
+                "markdown",
+                "vimwiki",
+                "mdx",
+              },
+            },
+          },
+        }
+      end
+
+      local kind_icons = {
         Text = "󰊄",
         Method = "",
         Function = "󰡱",
@@ -761,7 +713,7 @@
         Event = "",
         Operator = "",
         TypeParameter = "",
-      } 
+      }
 
       local cmp = require'cmp'
 
@@ -775,10 +727,8 @@
       -- Set configuration for specific filetype.
        cmp.setup.filetype('gitcommit', {
          sources = cmp.config.sources({
-           { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-         }, {
            { name = 'buffer' },
-         })
+         }, {})
        })
 
        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
@@ -840,16 +790,23 @@
   # ];
 
   extraPackages = with pkgs; [
+    alejandra
+    statix
+    deadnix
     stylua
     shfmt
     black
+    vale
+    hadolint
+    tflint
+    clj-kondo
     nodePackages.prettier
   ];
 
   extraPlugins = with pkgs.vimPlugins; [
     flit-nvim
+    image-nvim
     zoxide-vim
-    clipboard-image-nvim
     (pkgs.vimUtils.buildVimPlugin {
       pname = "nvim-recorder";
       version = "";

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   plugins = {
     colorizer.enable = true;
 
@@ -43,21 +42,21 @@
       enable = true;
       settings = {
         formatters_by_ft = {
-          nix = [ "alejandra" ];
-          lua = [ "stylua" ];
-          sh = [ "shfmt" ];
-          bash = [ "shfmt" ];
-          python = [ "black" ];
-          javascript = [ "prettier" ];
-          typescript = [ "prettier" ];
-          javascriptreact = [ "prettier" ];
-          typescriptreact = [ "prettier" ];
-          html = [ "prettier" ];
-          css = [ "prettier" ];
-          json = [ "prettier" ];
-          yaml = [ "prettier" ];
-          markdown = [ "prettier" ];
-          astro = [ "prettier" ];
+          nix = ["nixfmt"];
+          lua = ["stylua"];
+          sh = ["shfmt"];
+          bash = ["shfmt"];
+          python = ["black"];
+          javascript = ["prettier"];
+          typescript = ["prettier"];
+          javascriptreact = ["prettier"];
+          typescriptreact = ["prettier"];
+          html = ["prettier"];
+          css = ["prettier"];
+          json = ["prettier"];
+          yaml = ["prettier"];
+          markdown = ["prettier"];
+          astro = ["prettier"];
         };
         format_on_save = {
           timeout_ms = 500;
@@ -141,12 +140,12 @@
           "statix"
           "deadnix"
         ];
-        text = [ "vale" ];
-        markdown = [ "vale" ];
-        rst = [ "vale" ];
-        clojure = [ "clj-kondo" ];
-        dockerfile = [ "hadolint" ];
-        terraform = [ "tflint" ];
+        text = ["vale"];
+        markdown = ["vale"];
+        rst = ["vale"];
+        clojure = ["clj-kondo"];
+        dockerfile = ["hadolint"];
+        terraform = ["tflint"];
       };
     };
 
@@ -170,67 +169,67 @@
       fromSnipmate = [
         {
           paths = ./vim-snippets/snippets/markdown.snippets;
-          include = [ "markdown" ];
+          include = ["markdown"];
         }
         {
           paths = ./vim-snippets/snippets/html.snippets;
-          include = [ "html" ];
+          include = ["html"];
         }
         {
           paths = ./vim-snippets/snippets/go.snippets;
-          include = [ "go" ];
+          include = ["go"];
         }
         {
           paths = ./vim-snippets/snippets/rust.snippets;
-          include = [ "rust" ];
+          include = ["rust"];
         }
         {
           paths = ./vim-snippets/snippets/php.snippets;
-          include = [ "php" ];
+          include = ["php"];
         }
         {
           paths = ./vim-snippets/snippets/lua.snippets;
-          include = [ "lua" ];
+          include = ["lua"];
         }
         {
           paths = ./vim-snippets/snippets/c.snippets;
-          include = [ "c" ];
+          include = ["c"];
         }
         {
           paths = ./vim-snippets/snippets/css.snippets;
-          include = [ "css" ];
+          include = ["css"];
         }
         {
           paths = ./vim-snippets/snippets/javascript/javascript.snippets;
-          include = [ "javascript" ];
+          include = ["javascript"];
         }
         {
           paths = ./vim-snippets/snippets/javascript/javascript-react.snippets;
-          include = [ "javascript-react" ];
+          include = ["javascript-react"];
         }
         {
           paths = ./vim-snippets/UltiSnips/javascript-node.snippets;
-          include = [ "javascript-node" ];
+          include = ["javascript-node"];
         }
         {
           paths = ./vim-snippets/snippets/typescript.snippets;
-          include = [ "typescript" ];
+          include = ["typescript"];
         }
         {
           paths = ./vim-snippets/snippets/typescriptreact.snippets;
-          include = [ "typescript-react" ];
+          include = ["typescript-react"];
         }
         {
           paths = ./vim-snippets/snippets/sh.snippets;
-          include = [ "sh" ];
+          include = ["sh"];
         }
         {
           paths = ./vim-snippets/snippets/bash.snippets;
-          include = [ "bash" ];
+          include = ["bash"];
         }
         {
           paths = ./vim-snippets/snippets/zsh.snippets;
-          include = [ "zsh" ];
+          include = ["zsh"];
         }
       ];
     };
@@ -479,8 +478,8 @@
           ];
         };
         sources = [
-          { name = "nvim_lsp"; }
-          { name = "emoji"; }
+          {name = "nvim_lsp";}
+          {name = "emoji";}
           {
             name = "buffer"; # text within current buffer
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
@@ -800,7 +799,7 @@
     hadolint
     tflint
     clj-kondo
-    nodePackages.prettier
+    prettier
   ];
 
   extraPlugins = with pkgs.vimPlugins; [

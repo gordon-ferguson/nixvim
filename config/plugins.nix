@@ -660,6 +660,10 @@
 
       require("telescope").load_extension("lazygit")
 
+      local leap = require("leap")
+      leap.opts.vim_opts["go.ignorecase"] = false
+      leap.opts.case_sensitive = nil
+
       if #vim.api.nvim_list_uis() > 0 then
         require("image").setup {
           backend = "kitty",

@@ -654,8 +654,13 @@
         clever_repeat = true,
         multiline = true,
         -- Like `leap`s similar argument (call-specific overrides).
-        -- E.g.: opts = { equivalence_classes = {} }
-        opts = {}
+        opts = {
+          -- flit.nvim still defaults this removed Leap option to true.
+          case_sensitive = false,
+          vim_opts = {
+            ["go.ignorecase"] = false,
+          },
+        }
       }
 
       require("telescope").load_extension("lazygit")
